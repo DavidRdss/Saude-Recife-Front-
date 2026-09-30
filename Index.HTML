@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saúde Recife</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- TELA: Boas-vindas -->
+    <section id="screen-welcome" class="screen active">
+      <div class="logo-circle">SR</div>
+      <h2>Olá, seja bem-vindo!</h2>
+      <button class="btn-primary" data-goto="login">Entrar</button>
+    </section>
+
+    <!-- TELA: Login -->
+    <section id="screen-login" class="screen">
+      <header class="brand">
+        <span class="brand-icon">SR</span>
+        <h1>Saúde Recife</h1>
+      </header>
+      <p class="subtitle">Bem-vindo!<br />Faça seu login</p>
+
+      <form id="form-login">
+        <input type="text" id="input-cpf" placeholder="CPF ou E-mail" required />
+        <input type="password" id="input-senha" placeholder="Senha" required />
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="input-lembrar" />
+          Lembrar-me
+          <a href="#" class="link-right">esqueceu a senha?</a>
+        </label>
+
+        <button type="submit" class="btn-primary">Entrar</button>
+      </form>
+
+      <a href="#" class="link-center">Criar Conta / Cadastra-se</a>
+
+      <button class="btn-outline">Entrar com Google</button>
+      <button class="btn-outline">Entrar com Facebook</button>
+    </section>
+
+    <!-- TELA: Início / Pré-triagem -->
+    <section id="screen-home" class="screen">
+      <header class="top-bar">
+        <h1>Saúde Recife</h1>
+        <span class="notif-badge">Notificações</span>
+      </header>
+      <h2 class="title-white">Início da Pré-Triagem</h2>
+
+      <div class="cards-row">
+        <div class="mini-card">Histórico de atendimento</div>
+        <div class="mini-card">Próximas consultas</div>
+      </div>
+
+      <h3 id="saudacao-usuario">Olá, João.</h3>
+      <p>
+        Vamos atender oque vc está sentindo? O processo de pré-triagem ajuda a
+        agilizar seu atendimento e direcionar para a melhor clínica.
+      </p>
+
+      <button class="btn-primary" data-goto="sintomas">Iniciar pré-triagem inteligente</button>
+
+      <nav class="bottom-nav">
+        <span class="nav-item active">Início</span>
+        <span class="nav-item">Consultas</span>
+        <span class="nav-item">Agenda</span>
+        <span class="nav-item">Perfil</span>
+      </nav>
+    </section>
+
+    <!-- TELA: Sintomas -->
+    <section id="screen-sintomas" class="screen">
+      <header class="top-bar-solid">
+        <span class="back" data-goto="home">‹</span>
+        <h1>Saúde Recife</h1>
+      </header>
+
+      <div class="steps">
+        <span class="step done">1</span>
+        <span class="step done">2</span>
+        <span class="step done">3</span>
+        <span class="step done">4</span>
+      </div>
+
+      <h2>Quais sintomas vc está sentindo?</h2>
+
+      <div class="symptom-grid" id="symptom-grid"></div>
+
+      <button class="btn-primary" id="btn-continuar-sintomas">Continuar</button>
+    </section>
+
+    <!-- TELA: Classificação e Resultado -->
+    <section id="screen-resultado" class="screen">
+      <header class="top-bar-solid">
+        <span class="back" data-goto="sintomas">‹</span>
+        <h1>Saúde Recife</h1>
+      </header>
+
+      <h2>Classificação e Resultado</h2>
+
+      <div class="result-card">
+        <div class="result-header" id="result-classificacao-label">Atendimento prioritário</div>
+        <p>Sua classificação: <span class="badge" id="result-classificacao-badge">prioritario</span></p>
+        <hr />
+        <p><strong>Resumo do paciente:</strong></p>
+        <p id="result-paciente-info">Maria Silva, 18 anos</p>
+        <ul id="result-sintomas-lista" class="result-list"></ul>
+        <p><strong>Observação:</strong> <span id="result-observacao">Apresentando sintomas agudos requerendo avaliação médica imediata</span></p>
+      </div>
+
+      <button class="btn-primary" data-goto="recomendacoes">VER RECOMENDAÇÃO DE CLÍNICA</button>
+      <a href="#" class="link-center">Encontrar unidade de saúde próxima</a>
+    </section>
+
+    <!-- TELA: Recomendações -->
+    <section id="screen-recomendacoes" class="screen">
+      <header class="top-bar-solid">
+        <span class="back" data-goto="resultado">‹</span>
+        <h1>Saúde Recife</h1>
+      </header>
+
+      <h2 id="recomendacao-saudacao">Olá João!</h2>
+      <p>Com base nas suas respostas, aqui estão as <strong>recomendações:</strong></p>
+
+      <div class="recommendation-list" id="recommendation-list"></div>
+
+      <button class="btn-primary" data-goto="clinicas">Buscar clínias parceiras</button>
+    </section>
+
+    <!-- TELA: Escolha da clínica -->
+    <section id="screen-clinicas" class="screen">
+      <header class="top-bar">
+        <span class="back" data-goto="recomendacoes">‹</span>
+        <h1>Saúde Recife</h1>
+        <span class="user-icon">Perfil</span>
+      </header>
+
+      <button class="btn-primary">Buscar Clínicas Proximas</button>
+
+      <h3 class="section-title">SISTEMA DE AGENDAMENTO</h3>
+      <div class="progress-icons">
+        <span class="p-icon done">Pré-triagem</span>
+        <span class="p-icon done">Recomendação</span>
+        <span class="p-icon active">Escolha da clínica</span>
+        <span class="p-icon">Agendamento</span>
+        <span class="p-icon">Notificação</span>
+      </div>
+
+      <h4>SELECIONE UMA CLÍNICA PARCEIRA</h4>
+      <div class="clinic-list" id="clinic-list"></div>
+    </section>
+
+    <!-- TELA: Profissional / Horário -->
+    <section id="screen-profissional" class="screen">
+      <header class="top-bar">
+        <span class="back" data-goto="clinicas">‹</span>
+        <h1>Saúde Recife</h1>
+        <span class="search-icon">Buscar</span>
+      </header>
+
+      <div class="doctor-card">
+        <div class="doctor-avatar" id="doctor-avatar">LM</div>
+        <h3 id="doctor-nome">Dra. Luana Martins</h3>
+        <p id="doctor-info">Clínica Geral • CRM 12345</p>
+        <p>Nota <span id="doctor-nota">4.8</span> (<span id="doctor-avaliacoes">124 avaliações</span>)</p>
+      </div>
+
+      <h4>SELECIONE O HORÁRIO</h4>
+      <div class="day-row" id="day-row"></div>
+      <div class="time-grid" id="time-grid"></div>
+
+      <button class="btn-primary" id="btn-selecionar-horario">SELECIONAR HORÁRIO ›</button>
+      <button class="btn-outline" data-goto="home">Continuar</button>
+    </section>
+
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
