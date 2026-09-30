@@ -1,0 +1,397 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  background: #eaf3fb;
+  display: flex;
+  justify-content: center;
+}
+
+#app {
+  width: 100%;
+  max-width: 400px;
+  min-height: 100vh;
+  background: #eaf3fb;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---- Controle de telas (SPA) ---- */
+.screen {
+  display: none;
+  flex-direction: column;
+  padding: 24px 20px;
+  min-height: 100vh;
+}
+.screen.active {
+  display: flex;
+}
+
+/* ---- Botões ---- */
+.btn-primary {
+  background: #1a73c1;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 12px;
+}
+.btn-primary:hover { background: #145a9c; }
+
+.btn-outline {
+  background: #fff;
+  border: 1px solid #cfd8e3;
+  border-radius: 30px;
+  padding: 12px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.link-center {
+  text-align: center;
+  display: block;
+  color: #1a73c1;
+  margin: 14px 0;
+  text-decoration: none;
+  font-weight: 600;
+}
+.link-right {
+  float: right;
+  color: #1a73c1;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+/* ---- Tela de boas-vindas ---- */
+#screen-welcome {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+}
+.logo-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: #d7e9f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a73c1;
+}
+#screen-welcome .btn-primary { width: 100%; }
+
+/* ---- Login ---- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.brand h1 { color: #1a73c1; font-size: 22px; }
+.brand-icon {
+  background: #1a73c1;
+  color: #fff;
+  border-radius: 50%;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.subtitle { margin-bottom: 16px; font-size: 15px; }
+
+#form-login input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #7db4e0;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+/* ---- Topo azul (Home) ---- */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1a73c1;
+  margin: -24px -20px 16px -20px;
+  padding: 20px;
+  color: #fff;
+  border-radius: 0 0 24px 24px;
+}
+.top-bar h1 { font-size: 18px; }
+.notif-badge, .user-icon, .search-icon {
+  font-size: 12px;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 14px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+.top-bar-solid {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #1a73c1;
+  margin: -24px -20px 20px -20px;
+  padding: 20px;
+  color: #fff;
+}
+.top-bar-solid h1 { font-size: 18px; }
+.back { font-size: 24px; cursor: pointer; }
+
+.title-white {
+  background: #1a73c1;
+  color: #fff;
+  margin: -16px -20px 20px -20px;
+  padding: 0 20px 30px 20px;
+  font-size: 22px;
+}
+
+.cards-row {
+  display: flex;
+  gap: 10px;
+  margin: -20px 0 20px 0;
+}
+.mini-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px;
+  flex: 1;
+  text-align: center;
+  font-size: 13px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.bottom-nav {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #d5e2ee;
+  padding-top: 10px;
+  font-size: 12px;
+  text-align: center;
+}
+.nav-item.active { color: #1a73c1; font-weight: 600; }
+
+/* ---- Sintomas ---- */
+.steps {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.step {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #1a3a5c;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.symptom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.symptom-item {
+  background: #eef4fa;
+  border-radius: 12px;
+  padding: 18px 8px;
+  text-align: center;
+  font-size: 13px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.symptom-item.selected {
+  border-color: #1a73c1;
+  background: #dbeafe;
+}
+
+/* ---- Resultado ---- */
+.result-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 16px;
+}
+.result-header {
+  background: #f4c11f;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.badge {
+  background: #f4c11f;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+.result-list { margin: 10px 0; padding-left: 18px; }
+
+/* ---- Recomendações ---- */
+.recommendation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 16px 0;
+}
+.recommendation-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+.recommendation-item .icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #d7e9f8;
+  color: #1a73c1;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.recommendation-item h4 { color: #1a73c1; }
+.recommendation-item p { font-size: 13px; color: #555; }
+
+/* ---- Clínicas ---- */
+.section-title { text-align: center; margin: 18px 0 10px; }
+.progress-icons {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  gap: 4px;
+}
+.p-icon { flex: 1; }
+.p-icon.done, .p-icon.active { color: #1a73c1; font-weight: 600; }
+
+.clinic-list {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+.clinic-card {
+  background: #fff;
+  border: 1px solid #1a3a5c;
+  border-radius: 14px;
+  padding: 12px;
+  min-width: 150px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.clinic-map {
+  background: #cfe3f7;
+  border-radius: 10px;
+  height: 70px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #1a3a5c;
+}
+.clinic-card button {
+  margin-top: 8px;
+  width: 100%;
+  background: #1a3a5c;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* ---- Profissional / Horário ---- */
+.doctor-card {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.doctor-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #d7e9f8;
+  color: #1a73c1;
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
+
+.day-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.day-chip {
+  flex: 1;
+  text-align: center;
+  padding: 8px 4px;
+  border-radius: 10px;
+  background: #eef4fa;
+  font-size: 12px;
+  cursor: pointer;
+}
+.day-chip.selected { background: #bcdcfb; font-weight: 600; }
+
+.time-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.time-slot {
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  background: #d9e6f2;
+  font-size: 14px;
+  cursor: pointer;
+}
+.time-slot.selected { background: #1a73c1; color: #fff; }
+.time-slot.indisponivel {
+  background: #eee;
+  color: #aaa;
+  cursor: not-allowed;
+}
